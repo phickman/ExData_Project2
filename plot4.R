@@ -8,12 +8,12 @@ library(ggplot2)
 # aggregate/summarise by year, sum emissions (stat=identity) where SCC contains 'coal'
 qplot(
     factor(year), 
-    Emissions, 
+    Emissions/1000, 
     data = NEI[NEI$SCC %in% SCC$SCC[grepl("[Cc]oal", SCC$EI.Sector)],], 
     geom = "bar",
     stat = "identity", 
     xlab = "Year", 
-    ylab = "PM2.5 Emissions (tons)", 
+    ylab = "PM2.5 Emissions (1000's tons)", 
     main = "USA Total Coal Combustion-Related PM2.5 Emissions"
 )
 
