@@ -16,7 +16,7 @@ NEI2 <- mutate(NEI2, City = ifelse(fips == "24510", "Baltimore City", "Los Angel
 qplot(
     factor(year), 
     Emissions, 
-    data = NEI2[NEI2$SCC %in% SCC$SCC[grepl("[Vv]ehicle", SCC$EI.Sector)],], 
+    data = NEI2[NEI2$SCC %in% SCC$SCC[grepl("[Vv]ehicle", SCC$SCC.Level.Two)],], 
     xlab = "Year", 
     ylab = "PM2.5 Emissions (tons)", 
     main = "Vehicle PM2.5 Emissions - Baltimore City v Los Angeles County"

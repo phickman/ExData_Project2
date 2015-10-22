@@ -9,7 +9,7 @@ library(ggplot2)
 qplot(
     factor(year), 
     Emissions, 
-    data = NEI[NEI$fips == "24510" & NEI$SCC %in% SCC$SCC[grepl("[Vv]ehicle", SCC$EI.Sector)],], 
+    data = NEI[NEI$fips == "24510" & NEI$SCC %in% SCC$SCC[grepl("[Vv]ehicle", SCC$SCC.Level.Two)],], 
     geom = "bar",
     stat = "identity", 
     xlab = "Year", 
