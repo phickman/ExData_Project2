@@ -6,8 +6,10 @@ NEI <- readRDS("summarySCC_PM25.rds")
 #    emissions from 1999-2008? Use the ggplot2 plotting system to make a plot answer this question.
 library(ggplot2)
 
+png(file = "plot3.png", width=720, height=480)
+
 # aggregate/summarise by year, sum emissions (stat=identity) for Baltimore City (fips=24510)
-qplot(
+print(qplot(
   factor(year), 
   Emissions, 
   data = NEI[NEI$fips=="24510",],
@@ -17,6 +19,6 @@ qplot(
   xlab = "Year", 
   ylab = "PM2.5 Emissions (tons)", 
   main = "PM2.5 Emissions for Baltimore City by Source Type"
-  ) + facet_grid(.~type)
+  ) + facet_grid(.~type))
 
-ggsave(file="plot3.png")
+dev.off()
